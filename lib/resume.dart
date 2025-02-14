@@ -72,13 +72,13 @@ class ResumePainter extends CustomPainter {
     const double startY = titleHeight + 20;
     const double padding = 20.0;
 
-    // ✅ First Light Blue Background (Top to Title Separator)
+    // Title Blue Background
     canvas.drawRect(
       Rect.fromLTWH(0, 0, size.width, titleHeight),
       backgroundPaint,
     );
 
-    // ✅ Second Light Blue Background (Left Column)
+    // ColumnBlue Background
     canvas.drawRect(
       Rect.fromLTWH(0, titleHeight, column1Width, size.height - titleHeight),
       backgroundPaint,
@@ -124,7 +124,7 @@ class ResumePainter extends CustomPainter {
         column2Width, padding, size);
   }
 
-  /// Centered text
+  // Centered text
   void _drawCenteredText(Canvas canvas, String text, double centerX, double y,
       {double fontSize = 14, bool isBold = false}) {
     final TextPainter textPainter = TextPainter(
@@ -145,7 +145,7 @@ class ResumePainter extends CustomPainter {
     textPainter.paint(canvas, Offset(x, y));
   }
 
-  /// Draw a Section with aligned titles and limited separator
+  // Draw a section with aligned titles and limited separator
   double _drawSection(Canvas canvas, String title, String content, double y,
       double col1Width, double col2Width, double padding, Size size) {
     const double sectionSpacing = 10.0;
@@ -179,7 +179,7 @@ class ResumePainter extends CustomPainter {
       maxWidth: textWidth,
     );
 
-    // ✅ Row separator only occupies 80% of the text column
+    // Row separator only occupies 80% of the text column
     final double separatorStart = col1Width + padding;
     final double separatorEnd = separatorStart + (textWidth * 0.8);
     canvas.drawLine(
@@ -193,7 +193,7 @@ class ResumePainter extends CustomPainter {
     return y + textHeight + sectionSpacing + 15;
   }
 
-  /// **Draw text with wrapping support**
+  /// Draw text with wrapping support
   double _drawText(Canvas canvas, String text, Offset position,
       {double fontSize = 14,
       bool isBold = false,
